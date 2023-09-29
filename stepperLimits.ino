@@ -1,6 +1,6 @@
 #include <Stepper.h>
 
-const int stepsPerRevolution = 2048;
+const int stepsPerRevolution = 2038;
 Stepper myStepper(stepsPerRevolution, 9, 11, 10, 12);
 unsigned long previousMillis = 0;  // will store the last time the step was performed
 const long stepInterval = 3600000; // interval between steps (1 hour in milliseconds)
@@ -27,15 +27,9 @@ void loop()
         Serial.println("moving backward");
         unsigned long currentMillis = millis(); // grab the current time
 
-        if (currentMillis - previousMillis >= stepInterval)
-        {
-            // it's time to step
-            previousMillis = currentMillis; // save the last time we stepped
-
-            // Step the motor
-            myStepper.setSpeed(12); // rpm
-            myStepper.step(2048);   // do 2048 steps -- corresponds to one revolution in one minute
-        }
+        myStepper.setSpeed(12); // rpm
+        myStepper.step(-2048);  // do 2048 steps -- corresponds to one revolution in one minute
+        delay(3600000);
 
         // Check if the limit switch is triggered (becomes LOW)
         if (digitalRead(limitSwitch1Pin) == LOW)
@@ -56,15 +50,10 @@ void loop()
     {
         unsigned long currentMillis = millis(); // grab the current time
         Serial.println("moving forward");
-        if (currentMillis - previousMillis >= stepInterval)
-        {
-            // it's time to step
-            previousMillis = currentMillis; // save the last time we stepped
-
-            // Step the motor
-            myStepper.setSpeed(12); // rpm
-            myStepper.step(-2048);  // do 2048 steps -- corresponds to one revolution in one minute
-        }
+        myStepper.setSpeed(12); // rpm
+        myStepper.step(-2048);  // do 2048 steps -- corresponds to one revolution in one minute
+        
+        delay(3600000);
 
         // Check if the limit switch is triggered (becomes LOW)
         if (digitalRead(limitSwitch2Pin) == LOW)
