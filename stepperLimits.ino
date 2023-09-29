@@ -21,6 +21,7 @@ void loop()
 {
     // Move the motor clockwise until the first limit switch is hit
     Serial.println("Moving clockwise");
+    previousMillis = 0;
     while (state)
     {
         Serial.println("moving backward");
