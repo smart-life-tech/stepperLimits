@@ -3,7 +3,7 @@ Creating a README file for a GitHub repository is a great way to provide informa
 ```markdown
 # Arduino Motor Control Project
 
-This project demonstrates motor control using an Arduino and a stepper motor.
+This project demonstrates motor control using an Arduino and a stepper motor.the motor start spinning untill it hit the limit switch and after hitting the limit switch It will just reverse it direction until it hits the other limit switch, unlimited times ( in loop ).
 
 ## Table of Contents
 - [Introduction](#introduction)
