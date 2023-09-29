@@ -24,7 +24,7 @@ void loop() {
 
   // Reverse the motor direction
   Serial.println("Reversing direction");
-  myStepper.step(-stepsPerRevolution);
+  //myStepper.step(-stepsPerRevolution);
   delay(500);
 
   // Move the motor counterclockwise until the second limit switch is hit
@@ -36,6 +36,6 @@ void loop() {
 
   // Reverse the motor direction
   Serial.println("Reversing direction");
-  myStepper.step(stepsPerRevolution);
+  //myStepper.step(stepsPerRevolution);
   delay(500);
 }
