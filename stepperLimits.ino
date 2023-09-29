@@ -34,7 +34,7 @@ void loop()
     while (digitalRead(limitSwitch2Pin) != HIGH)
     {
         myStepper.setSpeed(12); // rpm
-        myStepper.step(-2048);  // do 2048 steps -- corresponds to one revolution in one minute
+        myStepper.step(2048);  // do 2048 steps -- corresponds to one revolution in one minute
         delay(3600000);
     }
     delay(500);
