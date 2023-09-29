@@ -28,7 +28,7 @@ void loop()
         digitalWrite(Pin1, LOW);
         digitalWrite(Pin2, LOW);
         digitalWrite(Pin3, LOW);
-        delay(3600000); //   8min = 3600000        900000 = 15min           1800000 = 30min
+        delay(3600); //   8min = 3600000        900000 = 15min           1800000 = 30min
     }
 
     for (i = 0; i < 6; i++)
@@ -40,6 +40,6 @@ void loop()
         digitalWrite(Pin1, LOW);
         digitalWrite(Pin2, LOW);
         digitalWrite(Pin3, LOW);
-        delay(3600000);
+        delay(3600);
     }
 }
