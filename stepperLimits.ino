@@ -5,8 +5,8 @@ Stepper myStepper(stepsPerRevolution, 9, 11, 10, 12);
 unsigned long previousMillis = 0;  // will store the last time the step was performed
 const long stepInterval = 3600000; // interval between steps (1 hour in milliseconds)
 
-const int limitSwitch1Pin = 2; // Pin connected to the first limit switch
-const int limitSwitch2Pin = 3; // Pin connected to the second limit switch
+const int limitSwitch1Pin = 2; // D2 Pin connected to the first limit switch
+const int limitSwitch2Pin = 3; // D3 Pin connected to the second limit switch
 
 void setup()
 {
