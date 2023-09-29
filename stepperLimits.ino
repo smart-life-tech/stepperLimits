@@ -58,7 +58,7 @@ void loop()
         unsigned long currentMillis = millis(); // grab the current time
         Serial.println("moving forward");
         myStepper.setSpeed(12); // rpm
-        myStepper.step(-50);    // do 2048 steps -- corresponds to one revolution in one minute
+        myStepper.step(50);    // do 2048 steps -- corresponds to one revolution in one minute
 
         delay(3600000);
         steppins = steppins + 50;
