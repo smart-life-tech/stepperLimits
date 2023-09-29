@@ -8,6 +8,7 @@ const long stepInterval = 3600000; // interval between steps (1 hour in millisec
 const int limitSwitch1Pin = 2; // Pin connected to the first limit switch
 const int limitSwitch2Pin = 3; // Pin connected to the second limit switch
 bool state = true;
+long steppins = 50;
 void setup()
 {
     myStepper.setSpeed(5);
@@ -28,13 +29,19 @@ void loop()
         unsigned long currentMillis = millis(); // grab the current time
 
         myStepper.setSpeed(12); // rpm
-        myStepper.step(-2048);  // do 2048 steps -- corresponds to one revolution in one minute
-        delay(3600000);
+        myStepper.step(-50);    // do 2048 steps -- corresponds to one revolution in one minute
+        steppins = steppins + 50;
+        if (steppins > stepsPerRevolution)
+        {
+            steppins = 0;
+            delay(3600000);
+        }
 
         // Check if the limit switch is triggered (becomes LOW)
         if (digitalRead(limitSwitch1Pin) == LOW)
         {
             // Stop the stepper motor
+            steppins = 0;
             myStepper.setSpeed(0);
             myStepper.step(0);
             state = false;
@@ -51,9 +58,15 @@ void loop()
         unsigned long currentMillis = millis(); // grab the current time
         Serial.println("moving forward");
         myStepper.setSpeed(12); // rpm
-        myStepper.step(-2048);  // do 2048 steps -- corresponds to one revolution in one minute
-        
+        myStepper.step(-50);    // do 2048 steps -- corresponds to one revolution in one minute
+
         delay(3600000);
+        steppins = steppins + 50;
+        if (steppins > stepsPerRevolution)
+        {
+            steppins = 0;
+            delay(3600000);
+        }
 
         // Check if the limit switch is triggered (becomes LOW)
         if (digitalRead(limitSwitch2Pin) == LOW)
